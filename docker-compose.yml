@@ -1,0 +1,15 @@
+postgresql:
+  image: postgres
+  container_name: docker-postgresql
+  volumes_from:
+    - data
+  ports:
+    - "15432:5432"
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+
+data:
+  image: busybox
+  volumes:
+    - ./postgresql/data:/var/lib/postgresql/data
